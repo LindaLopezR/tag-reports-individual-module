@@ -1,0 +1,200 @@
+<template name="tagReports">
+	<div class="container">
+
+		<p class="titulo">{{_ "tags"}}</p>
+		<hr class="linea-turquesa">
+		<div class="row mrg-botton">
+			<div class="col-md-4 col-xs-6">
+				<div class="pannel">
+					<div class="cabeza-tag">
+						<p class="titulo-blanco">{{_ "active_cards"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row mrg-3">
+							<div class="col-sm-8">
+								<h3 class="titleTagCard" id="activeCards">{{getActiveCount}}</h3>
+							</div>
+							<div class="col-sm-4 hidden-xs">
+								<i class="iconSizeCard icons">
+									<i class="clone c-Turquesa icon"></i>
+									<i class="corner c-Turquesa checkmark circle icon"></i>
+								</i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-xs-6">
+				<div class="pannel">
+					<div class="cabeza-tag">
+						<p class="titulo-blanco">{{_ "closed_cards"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row mrg-3">
+							<div class="col-sm-8">
+								<h3 class="titleTagCard" id="closedCards">{{getClosedCount}}</h3>
+							</div>
+							<div class="col-sm-4 hidden-xs">
+								<i class="iconSizeCard icons">
+									<i class="clone c-Turquesa icon"></i>
+									<i class="corner c-Turquesa remove circle icon"></i>
+								</i>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-xs-6 mrg-top">
+				<div class="pannel">
+					<div class="cabeza-tag">
+						<p class="titulo-blanco">{{_ "expired_cards"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row mrg-3">
+							<div class="col-sm-8">
+								<h3 class="titleTagCard" id="expiredCards">{{getExpiredCount}}</h3>
+							</div>
+							<div class="col-sm-4 hidden-xs">
+								<i class="iconSizeCard icons">
+									<i class="clone c-Turquesa icon"></i>
+									<i class="corner c-Turquesa wait icon"></i>
+								</i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-6 mrg-top">
+				<div class="pannel">
+					<div class="cabeza-tag">
+						<p class="titulo-blanco">{{_ "urgent_cards"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row mrg-3">
+							<div class="col-sm-8">
+								<h3 class="titleTagCard" id="urgentCards">{{getUrgentCount}}</h3>
+							</div>
+							<div class="col-sm-4 hidden-xs">
+								<i class="iconSizeCard icons">
+									<i class="clone c-Turquesa icon"></i>
+									<i class="corner c-Turquesa warning sign icon"></i>
+								</i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-xs-6 mrg-top">
+				<div class="pannel">
+					<div class="cabeza-tag">
+						<p class="titulo-blanco">{{_ "deleted_card"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row mrg-3">
+							<div class="col-sm-8">
+								<h3 class="titleTagCard" id="deletedCard">{{getDeletedCount}}</h3>
+							</div>
+							<div class="col-sm-4 hidden-xs">
+								<i class="iconSizeCard icons">
+									<i class="clone c-Turquesa icon"></i>
+									<i class="corner c-Turquesa trash icon"></i>
+								</i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-xs-6 mrg-top">
+				<div class="pannel">
+					<div class="cabeza-tag">
+						<p class="titulo-blanco">{{_ "percentage"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<h2>
+							<span id="percentage_cards_close">{{getCompliance}}</span>%
+							<small>{{_ "percentage_cards"}}</small>
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<p class="titulo">{{_ "more_cards"}}</p>
+		<hr class="linea-turquesa">
+
+		<div class="row">
+
+			<div class="col-md-6 col-xs-12 mrg-top">
+				<div class="pannel">
+					<div class="cabeza-tag otherReport">
+						<p class="titulo-blanco">{{_ "location"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row">
+							<div class="col-sm-8">
+								{{#with getHighestLocation}}
+									<h3 class="titleTag" id="locationName">{{name}}</h3>
+									<p class="titleTag" id="locationCards">{{count}}</p>
+								{{/with}}
+							</div>
+							<div class="col-sm-4">
+								<i class="iconSize icons mrg-botton">
+									<i class="map c-Blue icon"></i>
+									<i class="corner c-Blue clone icon"></i>
+								</i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-xs-12 mrg-top">
+				<div class="pannel">
+					<div class="cabeza-tag otherReport">
+						<p class="titulo-blanco">{{_ "category"}}</p>
+					</div>
+					<div class="cuerpo-tag">
+						<div class="row">
+							<div class="col-sm-8">
+								{{#with getHighestCategory}}
+									<h3 class="titleTag" id="categoryName">{{name}}</h3>
+									<p class="titleTag" id="categoryCards">{{count}}</p>
+								{{/with}}
+							</div>
+							<div class="col-sm-4">
+								<i class="iconSize icons mrg-botton">
+									<i class="tags c-Blue icon"></i>
+									<i class="corner c-Blue clone icon"></i>
+								</i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- TODO Regresar esta seccion
+		<div class="ui segment">
+			<p class="titulo">{{_ "tables"}}</p>
+			<hr>
+			<div class="row text-center">
+				<div class="col-xs-12 col-md-4 mrg-botton">
+					<button class="ui button btnTagCards boton-prev" id="btnUsers">{{_ "users"}}</button>
+				</div>
+				<div class="col-xs-12 col-md-4 mrg-botton">
+					<button class="ui button btnTagCards boton-prev" id="btnLocations">{{_ "locations"}}</button>
+				</div>
+				<div class="col-xs-12 col-md-4 mrg-botton">
+					<button class="ui button btnTagCards boton-prev" id="btnCategories">{{_ "categories"}}</button>
+				</div>
+			</div>
+		</div>
+		-->
+
+	</div>
+</template>

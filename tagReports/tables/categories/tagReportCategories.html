@@ -1,0 +1,35 @@
+<template name="tagReportCategories">
+	<div class="container">
+		<p class="titleCategorie">{{_ "categories"}}</p>
+
+		<div class="row box">
+			{{#if showReportCategory}}
+			<table class="ui celled table">
+				<thead>
+					<tr>
+						<th>{{_ "category"}}</th>
+						<th>{{_ "created_cards"}}</th>
+						<th>{{_ "closed_cards_report"}}</th>
+						<th>{{_ "expired_cards_report"}}</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{{#each getCategoryCards}}
+						{{>categoriesCards}}
+					{{/each}}
+				</tbody>
+			</table>
+			{{else}}
+				{{>noReportCategory}}
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+<template name="noReportCategory">
+	<div class="no-gembas">
+		<img src="/img/no-task.png" class="ui medium">
+		<p>{{_ "no_data_display"}}</p>
+	</div>
+</template>

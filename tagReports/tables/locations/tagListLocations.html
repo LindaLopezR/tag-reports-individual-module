@@ -1,0 +1,35 @@
+<template name="tagListLocations">
+	<div class="container">
+		<p class="titleCategorie">{{_ "locations"}}</p>
+
+		<div class="row box">
+			{{#if showReportLocation}}
+			<table class="ui celled table">
+				<thead>
+					<tr>
+						<th>{{_ "location"}}</th>
+						<th>{{_ "created_cards"}}</th>
+						<th>{{_ "closed_cards_report"}}</th>
+						<th>{{_ "expired_cards_report"}}</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{{#each getLocationCards}}
+						{{>locationsCards}}
+					{{/each}}
+				</tbody>
+			</table>
+			{{else}}
+				{{>noReportLocation}}
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+<template name="noReportLocation">
+	<div class="no-gembas">
+		<img src="/img/email-04.png" class="ui medium">
+		<p>{{_ "no_data_display"}}</p>
+	</div>
+</template>
